@@ -257,3 +257,41 @@ def movfinal(y,dopcode,dreg,l,f,counting):
 dopcode ={'add':'00000', 'sub':'00001', 'mov':'00010', 'mov1':'00011', 'ld':'00100', 'st':'00101', 'mul':'00110', 'div':'00111', 'rs':'01000', 'ls':'01001', 'xor': '01010', 'or':'01011', 'and':'01011', 'not':'01101', 'cmp':'01110', 'jmp':'01111', 'jlt':'11100', 'jgt':'11101', 'je':'11111', 'hlt':'11010'}
 #dictionary of registers
 dreg = {'R0' :'000','R1' :'001','R2' :'010','R3' :'011','R4' :'100','R5' :'101','R6': '110', 'FLAGS':'111'}
+#  reads a list of strings, each item being a line
+duplicate_list_of_instructions=file.readlines()
+flag1 = -1
+flag2 = -1
+for a in duplicate_list_of_instructions:
+    if(a[0] == "var"):
+        flag1 += 1
+    elif(a[0] == "ld" or "st"):
+        flag2 += 1
+if(flag1 == 0 and flag2 == 0):
+    pass
+elif(flag1 == -1 and flag2 == 1): 
+    error = "variables not declared at the beginning\n"
+    file2.write(error)
+else:
+    pass
+# a = duplicate_list_of_instructions[0]
+# b = a.split()
+# if(len(b) != 0 and b[0] != "var"):
+#     error = "variables not declared at the beginning\n"
+#     file2.write(error)
+list_of_instructions=[]#list without any new line 
+for i in range(len(duplicate_list_of_instructions)):
+
+    if(duplicate_list_of_instructions[i]!='\n'):
+        list_of_instructions.append(duplicate_list_of_instructions[i])
+
+
+# print(list_of_instructions)
+# print(duplicate_list_of_instructions)
+
+# to check error number g 
+# l1=(list_of_instructions[0]).split()
+
+# if(l1[0]!='var'):
+#     error_g="Variables not declared at the beginning"
+#     file2.write(error_g)
+#     file2.write("\n")
