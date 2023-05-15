@@ -126,3 +126,12 @@ def function5(y,dopcode,dreg,l,counting):
         error_a = "error in line:"+str(counting)+"Illegal use of FLAGS register"
         file2.write(error_a)
         file2.write("\n")
+def function7(y,dopcode,l):
+    s1=dopcode[y[0]]
+    s2=16-len(s1)
+    s3=''
+    if(s2!=0):
+        for i in range(0,s2):
+            s3=s3+'0'
+    s4=s1+s3
+    l.append(s4)
