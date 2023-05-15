@@ -403,3 +403,17 @@ for x,y in dict_of_instructions.items():
             file2.write(q1)#
             file2.write("\n") #
             counting=counting+1
+    elif(y[0]=="hlt"):
+        function7(y,dopcode,l)
+        variable=x+1
+        # print(variable)
+        counting=counting+1
+        break
+    elif(y[0]=="var"):#
+        break#
+
+    else:
+        error_a="error in line:"+str(counting)+"Typos in instruction name"
+        file2.write(error_a)
+        file2.write("\n")
+        counting=counting+1
