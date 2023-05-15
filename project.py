@@ -351,3 +351,24 @@ for x,y in dict_of_instructions.items():
             file2.write(q1)#
             file2.write("\n") #
             counting=counting+1
+    elif(y[0]=="ld" or y[0]=="st"):
+        if(len(y)==3):#
+            loadandstore(y,dopcode,dreg,var,dict_of_labels,dict_of_instructions,l,file2,counting)
+            counting=counting+1
+            
+        else:#
+            q1="error in line:"+str(counting)+"general syntax error"#
+            file2.write(q1)#
+            file2.write("\n") #
+            counting=counting+1
+
+    elif(y[0]=="mov"):
+        if(len(y)==3):#
+            movfinal(y,dopcode,dreg,l,file2,counting)
+            counting=counting+1
+            
+        else:#
+            q1="error in line:"+str(counting)+"general syntax error"#
+            file2.write(q1)#
+            file2.write("\n") #
+            counting=counting+1
