@@ -135,3 +135,16 @@ def function7(y,dopcode,l):
             s3=s3+'0'
     s4=s1+s3
     l.append(s4)
+def address(address):
+    string = ""
+    string2 = ""
+    while address == True or address != 0:
+        yo = str(address%2)
+        string = yo + string
+        address = address//2
+    string = str(address) + string
+    a = 7-len(string)
+    for i in range(a):
+        string2 = string2 + "0"
+    string = string2 + string
+    return string
