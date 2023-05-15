@@ -393,3 +393,13 @@ for x,y in dict_of_instructions.items():
             file2.write(q1)#
             file2.write("\n") #
             counting=counting+1
+    elif(y[0]=="jlt"or y[0]=="jmp" or y[0]=="jgt" or y[0]=="je"):
+        if(len(y)==2):#
+            function6(y,dopcode,dict_of_labels,var,l,file2,counting)
+            counting=counting+1
+            
+        else:#
+            q1="error in line:"+str(counting)+"general syntax error"#
+            file2.write(q1)#
+            file2.write("\n") #
+            counting=counting+1
