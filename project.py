@@ -311,3 +311,32 @@ while(fl):
         break
 counting=i+1     #+(len(duplicate_list_of_instructions)-len(list_of_instructions))
 # print(var)
+dict_of_instructions={}
+dict_of_labels={}
+count=0
+while(i<len(list_of_instructions)):
+    
+    l2=list_of_instructions[i].split()
+    
+    if(":" in l2[0]):
+        dict_of_labels[l2[0]]=count
+        l3=[]#
+        for jam in range(1,len(l2)):#
+            l3.append(l2[jam])#
+
+        #if(":" in l2[0] and l2[1]=="hlt"):#
+        dict_of_instructions[count]=l3
+        count=count+1
+        i=i+1
+    else:
+        dict_of_instructions[count]=l2
+        count=count+1
+        i=i+1
+
+for j in range(len(var)):
+    dict_of_instructions[count]=var[j]
+    count=count+1
+# print(dict_of_instructions)
+# print(dict_of_labels) 
+
+l=[]
