@@ -253,3 +253,7 @@ def movfinal(y,dopcode,dreg,l,f,counting):
         f.write("\n")
     else:
         mov2(y,dopcode,dreg,l,f,counting)
+#dictionary of opcode
+dopcode ={'add':'00000', 'sub':'00001', 'mov':'00010', 'mov1':'00011', 'ld':'00100', 'st':'00101', 'mul':'00110', 'div':'00111', 'rs':'01000', 'ls':'01001', 'xor': '01010', 'or':'01011', 'and':'01011', 'not':'01101', 'cmp':'01110', 'jmp':'01111', 'jlt':'11100', 'jgt':'11101', 'je':'11111', 'hlt':'11010'}
+#dictionary of registers
+dreg = {'R0' :'000','R1' :'001','R2' :'010','R3' :'011','R4' :'100','R5' :'101','R6': '110', 'FLAGS':'111'}
