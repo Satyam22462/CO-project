@@ -340,3 +340,14 @@ for j in range(len(var)):
 # print(dict_of_labels) 
 
 l=[]
+for x,y in dict_of_instructions.items():
+    
+    if(y[0]=="add" or y[0]=="sub" or y[0]=="mul" or y[0]=="xor" or y[0]=="or" or y[0]=="and"):
+        if(len(y)==4):#
+            function1(y,dopcode,dreg,l,counting)#
+            counting=counting+1
+        else:#
+            q1="error in line:"+str(counting)+"general syntax error"#
+            file2.write(q1)#
+            file2.write("\n") #
+            counting=counting+1
