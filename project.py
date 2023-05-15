@@ -431,3 +431,15 @@ else:
             error_i="error in line:"+str(counting)+"hlt not being used as the last instruction"
             file2.write(error_i)
             file2.write("\n")
+# print(l)
+file.close()
+file2.close()
+finished_file1=open("output.txt","r")
+listing=finished_file1.readlines()
+finished_file1.close()
+finished_file=open("output.txt","a")
+if(listing==[]):
+    for m in l:
+        finished_file.write(m)
+        finished_file.write("\n")
+finished_file.close()
