@@ -203,3 +203,53 @@ def function6(y,dopcode,dict_of_labels,var,l,f,counting):#label wala
                 break
             else:
                 pass
+def mov2(y,dopcode,dreg,l,f,counting):
+    yo = dopcode['mov1']
+    if(y[1] == 'FLAGS'):
+        error_a ="error in line:"+str(counting)+ "Illegal use of FLAGS register"
+        f.write(error_a)
+        f.write("\n")
+    if(y[1] not in dreg):
+        error_a = "error in line:"+str(counting)+"Typos in register name"
+        f.write(error_a)
+        f.write("\n")
+    # elif(y[2] == 'FLAGS'):
+    #     error_a = "error in line:"+str(counting)+"Illegal use of FLAGS register"
+    #     f.write(error_a)
+    #     f.write("\n")
+    elif(y[2] not in dreg):
+        error_a = "error in line:"+str(counting)+"Typos in register name"
+        f.write(error_a)
+        f.write("\n")
+    else:
+        a = yo+"00000"+dreg[y[1]]+dreg[y[2]]
+        l.append(a)
+def mov1(y,dopcode,dreg,l,f,counting):
+    yo = dopcode['mov']
+    c = y[2]
+    b = int(c[1:])
+    if(y[1] == 'FLAGS'):
+        error_a = "error in line:"+str(counting)+"Illegal use of FLAGS register"
+        f.write(error_a)
+        f.write("\n")
+    elif(y[1] not in dreg):
+        error_a ="error in line:"+str(counting)+ "Typos in register name"
+        f.write(error_a)
+        f.write("\n")
+    elif(b<0 or b>127):
+        error_a ="error in line:"+str(counting)+ "Illegal Immediate values"
+        f.write(error_a)
+        f.write("\n")
+    else:
+        a = yo+"0"+dreg[y[1]]+address(b)
+        l.append(a)
+def movfinal(y,dopcode,dreg,l,f,counting):
+    b = y[2]
+    if(b[0] == "$"):
+        mov1(y,dopcode,dreg,l,f,counting)
+    elif(b.isdigit()):
+        error_a = "error in line:"+str(counting)+f" {b} in not defined"
+        f.write(error_a)
+        f.write("\n")
+    else:
+        mov2(y,dopcode,dreg,l,f,counting)
