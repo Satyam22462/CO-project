@@ -168,3 +168,38 @@ def function6(y,dopcode,dict_of_labels,var,l,f,counting):#label wala
     else:
         a = yo+"0000"+address(dict_of_labels[e])
         l.append(a)
+   def loadandstore(y,dopcode,dreg,var,dict_of_labels,dict_of_instructions,l,f,counting):
+    yo = dopcode[y[0]]
+    flag = -1
+    for i in range(len(var)):
+        b = var[i][1]
+        if(b == y[2]):
+            flag += 1
+            break
+    if(y[1] == 'FLAGS'):
+        error_a = "error in line:"+str(counting)+"Illegal use of FLAGS register"
+        f.write(error_a)
+        f.write("\n")
+    elif(y[1] not in dreg):
+        error_a = "error in line:"+str(counting)+"Typos in register name"
+        f.write(error_a)
+        f.write("\n")
+    elif(y[2] in dict_of_labels):
+        error_a="error in line:"+str(counting)+"Misuse of label as variable"
+        f.write(error_a)
+        f.write("\n")
+    elif (flag == -1):
+        error_a="error in line:"+str(counting)+"Use of undefined variables"
+        f.write(error_a)
+        f.write("\n")
+    else:
+        c = 0
+        for i in dict_of_instructions:
+            x = dict_of_instructions[i]
+            if(len(x)>1 and (x[1]==y[2])):
+                c += i
+                a = yo+"0"+dreg[y[1]] + address(c)
+                l.append(a)
+                break
+            else:
+                pass
