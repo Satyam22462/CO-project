@@ -148,3 +148,23 @@ def address(address):
         string2 = string2 + "0"
     string = string2 + string
     return string
+def function6(y,dopcode,dict_of_labels,var,l,f,counting):#label wala
+    yo = dopcode[y[0]]
+    e = y[1]+":"
+    flag = -1
+    for i in range(len(var)):
+        b = var[i][1]
+        if(b == y[1]):
+            flag += 1
+            break
+    if (flag == 0):
+        error_a="error in line:"+str(counting)+"misuse of variable as label"#change
+        f.write(error_a)
+        f.write("\n")
+    elif(e not in dict_of_labels):
+        error_a="error in line:"+str(counting)+"Use of undefined labels"
+        f.write(error_a)
+        f.write("\n")
+    else:
+        a = yo+"0000"+address(dict_of_labels[e])
+        l.append(a)
