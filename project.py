@@ -96,6 +96,9 @@ def function4(y,dopcode,dreg,l,counting):
         error_a="error in line:"+str(counting)+"Typos in register name"
         file2.write(error_a)
         file2.write("\n")
+        
+        
+        
 def function5(y,dopcode,dreg,l,counting):
     s1=dopcode[y[0]]
     if(y[1] in dreg and y[1] != "FLAGS" and y[2] in dreg and y[2] != "FLAGS"):
@@ -126,6 +129,7 @@ def function5(y,dopcode,dreg,l,counting):
         error_a = "error in line:"+str(counting)+"Illegal use of FLAGS register"
         file2.write(error_a)
         file2.write("\n")
+        
 def function7(y,dopcode,l):
     s1=dopcode[y[0]]
     s2=16-len(s1)
@@ -135,6 +139,7 @@ def function7(y,dopcode,l):
             s3=s3+'0'
     s4=s1+s3
     l.append(s4)
+    
 def address(address):
     string = ""
     string2 = ""
@@ -148,6 +153,7 @@ def address(address):
         string2 = string2 + "0"
     string = string2 + string
     return string
+
 def function6(y,dopcode,dict_of_labels,var,l,f,counting):#label wala
     yo = dopcode[y[0]]
     e = y[1]+":"
@@ -168,6 +174,7 @@ def function6(y,dopcode,dict_of_labels,var,l,f,counting):#label wala
     else:
         a = yo+"0000"+address(dict_of_labels[e])
         l.append(a)
+        
    def loadandstore(y,dopcode,dreg,var,dict_of_labels,dict_of_instructions,l,f,counting):
     yo = dopcode[y[0]]
     flag = -1
@@ -257,6 +264,12 @@ def movfinal(y,dopcode,dreg,l,f,counting):
 dopcode ={'add':'00000', 'sub':'00001', 'mov':'00010', 'mov1':'00011', 'ld':'00100', 'st':'00101', 'mul':'00110', 'div':'00111', 'rs':'01000', 'ls':'01001', 'xor': '01010', 'or':'01011', 'and':'01011', 'not':'01101', 'cmp':'01110', 'jmp':'01111', 'jlt':'11100', 'jgt':'11101', 'je':'11111', 'hlt':'11010'}
 #dictionary of registers
 dreg = {'R0' :'000','R1' :'001','R2' :'010','R3' :'011','R4' :'100','R5' :'101','R6': '110', 'FLAGS':'111'}
+
+
+
+
+
+
 #  reads a list of strings, each item being a line
 duplicate_list_of_instructions=file.readlines()
 flag1 = -1
@@ -296,6 +309,10 @@ for i in range(len(duplicate_list_of_instructions)):
 #     file2.write(error_g)
 #     file2.write("\n")
 
+
+
+
+
 var=[]# list of list holding all types of var instructions
 fl=True
 i=0
@@ -311,6 +328,7 @@ while(fl):
         break
 counting=i+1     #+(len(duplicate_list_of_instructions)-len(list_of_instructions))
 # print(var)
+
 dict_of_instructions={}
 dict_of_labels={}
 count=0
@@ -340,6 +358,7 @@ for j in range(len(var)):
 # print(dict_of_labels) 
 
 l=[]
+
 for x,y in dict_of_instructions.items():
     
     if(y[0]=="add" or y[0]=="sub" or y[0]=="mul" or y[0]=="xor" or y[0]=="or" or y[0]=="and"):
@@ -351,6 +370,7 @@ for x,y in dict_of_instructions.items():
             file2.write(q1)#
             file2.write("\n") #
             counting=counting+1
+            
     elif(y[0]=="ld" or y[0]=="st"):
         if(len(y)==3):#
             loadandstore(y,dopcode,dreg,var,dict_of_labels,dict_of_instructions,l,file2,counting)
@@ -372,6 +392,7 @@ for x,y in dict_of_instructions.items():
             file2.write(q1)#
             file2.write("\n") #
             counting=counting+1
+            
     elif(y[0]=="ls" or y[0]=="rs"):
         if(len(y)==3):#
             function4(y,dopcode,dreg,l,counting)
@@ -382,6 +403,7 @@ for x,y in dict_of_instructions.items():
             file2.write(q1)#
             file2.write("\n") #
             counting=counting+1
+            
     elif(y[0]=="cmp"or y[0]=="div" or y[0]=="not"):
         
         if(len(y)==3):#
@@ -393,6 +415,7 @@ for x,y in dict_of_instructions.items():
             file2.write(q1)#
             file2.write("\n") #
             counting=counting+1
+            
     elif(y[0]=="jlt"or y[0]=="jmp" or y[0]=="jgt" or y[0]=="je"):
         if(len(y)==2):#
             function6(y,dopcode,dict_of_labels,var,l,file2,counting)
@@ -403,10 +426,12 @@ for x,y in dict_of_instructions.items():
             file2.write(q1)#
             file2.write("\n") #
             counting=counting+1
+            
     elif(y[0]=="hlt"):
         function7(y,dopcode,l)
         variable=x+1
         # print(variable)
+        
         counting=counting+1
         break
     elif(y[0]=="var"):#
