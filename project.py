@@ -295,3 +295,19 @@ for i in range(len(duplicate_list_of_instructions)):
 #     error_g="Variables not declared at the beginning"
 #     file2.write(error_g)
 #     file2.write("\n")
+
+var=[]# list of list holding all types of var instructions
+fl=True
+i=0
+while(fl):
+    if(i<len(list_of_instructions)):
+        l2=list_of_instructions[i].split()
+        if(l2[0]=='var'):
+            var.append(l2)#var.append(l2)
+            i=i+1
+        else:
+            fl=False
+    else:
+        break
+counting=i+1     #+(len(duplicate_list_of_instructions)-len(list_of_instructions))
+# print(var)
