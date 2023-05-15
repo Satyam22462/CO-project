@@ -372,3 +372,13 @@ for x,y in dict_of_instructions.items():
             file2.write(q1)#
             file2.write("\n") #
             counting=counting+1
+    elif(y[0]=="ls" or y[0]=="rs"):
+        if(len(y)==3):#
+            function4(y,dopcode,dreg,l,counting)
+            counting=counting+1
+            
+        else:#
+            q1="error in line:"+str(counting)+"general syntax error"#
+            file2.write(q1)#
+            file2.write("\n") #
+            counting=counting+1
