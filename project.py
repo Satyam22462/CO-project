@@ -417,3 +417,17 @@ for x,y in dict_of_instructions.items():
         file2.write(error_a)
         file2.write("\n")
         counting=counting+1
+variable1=dict_of_instructions.values()                        
+if (['hlt'] not in variable1):
+    error_h="Missing hlt instruction"
+    file2.write(error_h)
+    file2.write("\n")
+
+else:
+    if(variable<len(dict_of_instructions)):
+    
+        variable2=dict_of_instructions[variable]
+        if(variable2[0]=="add" or variable2[0]=="sub" or variable2[0]=="mul" or variable2[0]=="xor" or variable2[0]=="or" or variable2[0]=="and" or variable2[0]=="ld" or variable2[0]=="st" or variable2[0]=="mov" or variable2[0]=="ls" or variable2[0]=="rs" or variable2[0]=="cmp"or variable2[0]=="div" or variable2[0]=="not" or variable2[0]=="jlt" or variable2[0]=="jmp" or variable2[0]=="jgt" or variable2[0]=="je" or len(dict_of_instructions)-variable!=len(var)):
+            error_i="error in line:"+str(counting)+"hlt not being used as the last instruction"
+            file2.write(error_i)
+            file2.write("\n")
