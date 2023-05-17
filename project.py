@@ -1,3 +1,4 @@
+import sys
 def function1(y,dopcode,dreg,l,counting):
     s1=dopcode[y[0]]
     if(y[1] == "FLAGS"):
@@ -351,7 +352,7 @@ for j in range(len(var)):
 # print(dict_of_labels) 
 
 l=[]
-
+variable = 0
 for x,y in dict_of_instructions.items():
     
     if(y[0]=="add" or y[0]=="sub" or y[0]=="mul" or y[0]=="xor" or y[0]=="or" or y[0]=="and"):
@@ -422,7 +423,7 @@ for x,y in dict_of_instructions.items():
 
     elif(y[0]=="hlt"):
         function7(y,dopcode,l)
-        variable=x+1
+        variable=variable + x+1
         # print(variable)
         counting=counting+1
         break
@@ -448,7 +449,8 @@ else:
         if(variable2[0]=="add" or variable2[0]=="sub" or variable2[0]=="mul" or variable2[0]=="xor" or variable2[0]=="or" or variable2[0]=="and" or variable2[0]=="ld" or variable2[0]=="st" or variable2[0]=="mov" or variable2[0]=="ls" or variable2[0]=="rs" or variable2[0]=="cmp"or variable2[0]=="div" or variable2[0]=="not" or variable2[0]=="jlt" or variable2[0]=="jmp" or variable2[0]=="jgt" or variable2[0]=="je" or len(dict_of_instructions)-variable!=len(var)):
             error_i="error in line:"+str(counting)+"hlt not being used as the last instruction"
             print(error_i)
-            print("\n") 
+            print("\n")
+            sys.exit() 
 # print(l)
 # for i in range(0,len(file2)):
 #     print(file2[i])
