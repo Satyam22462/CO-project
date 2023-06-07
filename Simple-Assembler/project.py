@@ -245,7 +245,7 @@ def movfinal(y,dopcode,dreg,l,f,counting):
     else:
         mov2(y,dopcode,dreg,l,f,counting)
 #dictionary of opcode
-dopcode ={'add':'00000', 'sub':'00001', 'mov':'00010', 'mov1':'00011', 'ld':'00100', 'st':'00101', 'mul':'00110', 'div':'00111', 'rs':'01000', 'ls':'01001', 'xor': '01010', 'or':'01011', 'and':'01011', 'not':'01101', 'cmp':'01110', 'jmp':'01111', 'jlt':'11100', 'jgt':'11101', 'je':'11111', 'hlt':'11010','nand':'11001','nor':'11110','xnor':'10011','stdec':'10100','ldinc':'1010'}
+dopcode ={'add':'00000', 'sub':'00001', 'mov':'00010', 'mov1':'00011', 'ld':'00100', 'st':'00101', 'mul':'00110', 'div':'00111', 'rs':'01000', 'ls':'01001', 'xor': '01010', 'or':'01011', 'and':'01100', 'not':'01101', 'cmp':'01110', 'jmp':'01111', 'jlt':'11100', 'jgt':'11101', 'je':'11111', 'hlt':'11010'}
 #dictionary of registers
 dreg = {'R0' :'000','R1' :'001','R2' :'010','R3' :'011','R4' :'100','R5' :'101','R6': '110', 'FLAGS':'111'}
 #file2 is ans
@@ -275,9 +275,10 @@ for a in duplicate_list_of_instructions:
         flag2 += 1
 if(flag1 == 0 and flag2 == 0):
     pass
-elif(flag1 == -1 and flag2 == 1): 
-    error = "variables not declared at the beginning\n"
-    print(error)
+# elif(flag1 == -1 and flag2 == 1): 
+#     # error = "variables not declared at the beginning\n"
+#     # print(error)
+#     continue
 else:
     pass
 # a = duplicate_list_of_instructions[0]
@@ -355,7 +356,7 @@ l=[]
 variable = 0
 for x,y in dict_of_instructions.items():
     
-    if(y[0]=="add" or y[0]=="sub" or y[0]=="mul" or y[0]=="xor" or y[0]=="or" or y[0]=="and"or y[0]=="nand" or y[0]=="nor" or y[0]=="xnor"):
+    if(y[0]=="add" or y[0]=="sub" or y[0]=="mul" or y[0]=="xor" or y[0]=="or" or y[0]=="and"):
         if(len(y)==4):#
             function1(y,dopcode,dreg,l,counting)#
             counting=counting+1
@@ -365,7 +366,7 @@ for x,y in dict_of_instructions.items():
             print("\n") #
             counting=counting+1
 
-    elif(y[0]=="ld" or y[0]=="st"or y[0]=="stdec" or y[0]=="ldinc"):
+    elif(y[0]=="ld" or y[0]=="st"):
         if(len(y)==3):#
             loadandstore(y,dopcode,dreg,var,dict_of_labels,dict_of_instructions,l,file2,counting)
             counting=counting+1
