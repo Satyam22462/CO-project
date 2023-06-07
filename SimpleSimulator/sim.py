@@ -925,46 +925,84 @@ def divide(instruction,R0,R1,R2,R3,R4,R5,R6,FLAGS,dreg2):
 def notkar(instruction,R0,R1,R2,R3,R4,R5,R6,FLAGS,dreg2):
     s1=dreg2[instruction[10:13]]
     s2=dreg2[instruction[13:16]]
-
+    s5=''
     if(s2[-1]=='0'):
-        s4=converting_binary_to_decimal(R0[0])
+        for i in range(len(R0[0])):
+            if(R0[0][i]=="0"):
+                s5=s5+"1"
+            else:
+                s5=s5+"0"
+
+
+        # s4=converting_binary_to_decimal(R0[0])
     elif(s2[-1]=='1'):
-        s4=converting_binary_to_decimal(R1[0])
+        for i in range(len(R0[0])):
+            if(R1[0][i]=="0"):
+                s5=s5+"1"
+            else:
+                s5=s5+"0"
+        # s4=converting_binary_to_decimal(R1[0])
     elif(s2[-1]=='2'):
-        s4=converting_binary_to_decimal(R2[0])
+        for i in range(len(R0[0])):
+            if(R2[0][i]=="0"):
+                s5=s5+"1"
+            else:
+                s5=s5+"0"
+        # s4=converting_binary_to_decimal(R2[0])
     elif(s2[-1]=='3'):
-        s4=converting_binary_to_decimal(R3[0])
+        for i in range(len(R0[0])):
+            if(R3[0][i]=="0"):
+                s5=s5+"1"
+            else:
+                s5=s5+"0"
+        # s4=converting_binary_to_decimal(R3[0])
     elif(s2[-1]=='4'):
-        s4=converting_binary_to_decimal(R4[0])
+        for i in range(len(R0[0])):
+            if(R4[0][i]=="0"):
+                s5=s5+"1"
+            else:
+                s5=s5+"0"
+        # s4=converting_binary_to_decimal(R4[0])
     elif(s2[-1]=='5'):
-        s4=converting_binary_to_decimal(R5[0])
+        for i in range(len(R0[0])):
+            if(R5[0][i]=="0"):
+                s5=s5+"1"
+            else:
+                s5=s5+"0"
+        # s4=converting_binary_to_decimal(R5[0])
     elif(s2[-1]=='6'):
-        s4=converting_binary_to_decimal(R6[0])
-    s5=~s4
-    s6=converting_decimal_to_binary(s5)
+        for i in range(len(R0[0])):
+            if(R6[0][i]=="0"):
+                s5=s5+"1"
+            else:
+                s5=s5+"0"
+        # s4=converting_binary_to_decimal(R6[0])
+    # s5=~s4
+    # s6=converting_decimal_to_binary(s5)
+    
     if(s1[-1]=='0'):
         R0.clear()
-        R0.append(s6)
+        R0.append(s5)
     elif(s1[-1]=='1'):
         R1.clear()
-        R1.append(s6)
+        R1.append(s5)
     elif(s1[-1]=='2'):
         R2.clear()
-        R2.append(s6)
+        R2.append(s5)
     elif(s1[-1]=='3'):
         R3.clear()
-        R3.append(s6)
+        R3.append(s5)
     elif(s1[-1]=='4'):
         R4.clear()
-        R4.append(s6)
+        R4.append(s5)
     elif(s1[-1]=='5'):
         R6.clear()
-        R6.append(s6)
+        R6.append(s5)
     elif(s1[-1]=='6'):
         R6.clear()
-        R6.append(s6)
+        R6.append(s5)
     FLAGS.clear()
-    FLAGS.append('0000000000000000') 
+    FLAGS.append('0000000000000000')
 
 def cmp(instruction,R0,R1,R2,R3,R4,R5,R6,FLAGS,dreg2,FLAGS2):
     s1=dreg2[instruction[10:13]]
