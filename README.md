@@ -14,3 +14,5 @@ All this function take care of all the possible errors like checking the immedia
 At last we are checking if the halt instruction is present or not, if not then it's going to show error in output.txt file.
 We are also taking care that halt must be used as the last instruction.
 Finally if their are no errors our assembly code is successfully converted into it's binary code and saved in the output.txt file.
+we extend the assembler by adding five more instructions 'nand': 11001, 'nor':'11110','xnor':'10011','stdec':'10100','ldinc':'10100' 
+whwn the assembler does not produce error the simulator executes the code 
