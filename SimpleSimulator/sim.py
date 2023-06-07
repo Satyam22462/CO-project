@@ -1,3 +1,4 @@
+# f1=open("stdin.txt","r")
 def converting_binary_to_decimal(l):
     final=0
     j=15
@@ -1013,11 +1014,10 @@ def cmp(instruction,R0,R1,R2,R3,R4,R5,R6,FLAGS,dreg2,FLAGS2):
         FLAGS2.clear()
         FLAGS2.append('0000000000000010')
 
-import sys
 def jgt(instruction,R0,R1,R2,R3,R4,R5,R6,FLAGS,dreg2,FLAGS2,pc):
     s1=instruction[9:16]
     s2=converting_binary_to_decimal_7_bit(s1)
-    if(FLAGS2[0][-2]==1):
+    if(FLAGS2[0][-2]=='1'):
         FLAGS.clear()
         FLAGS.append('0000000000000000')
         FLAGS2.clear()
@@ -1033,7 +1033,7 @@ def jgt(instruction,R0,R1,R2,R3,R4,R5,R6,FLAGS,dreg2,FLAGS2,pc):
 def jlt(instruction,R0,R1,R2,R3,R4,R5,R6,FLAGS,dreg2,FLAGS2,pc):
     s1=instruction[9:16]
     s2=converting_binary_to_decimal_7_bit(s1)
-    if(FLAGS2[0][-3]==1):
+    if(FLAGS2[0][-3]=='1'):
         FLAGS.clear()
         FLAGS.append('0000000000000000')
         FLAGS2.clear()
@@ -1048,7 +1048,7 @@ def jlt(instruction,R0,R1,R2,R3,R4,R5,R6,FLAGS,dreg2,FLAGS2,pc):
 def je(instruction,R0,R1,R2,R3,R4,R5,R6,FLAGS,dreg2,FLAGS2,pc):
     s1=instruction[9:16]
     s2=converting_binary_to_decimal_7_bit(s1)
-    if(FLAGS2[0][-1]==1):
+    if(FLAGS2[0][-1]=='1'):
         FLAGS.clear()
         FLAGS.append('0000000000000000')
         FLAGS2.clear()
@@ -1060,337 +1060,337 @@ def je(instruction,R0,R1,R2,R3,R4,R5,R6,FLAGS,dreg2,FLAGS2,pc):
         FLAGS2.clear()
         FLAGS2.append('0000000000000000')
         return pc+1
-# def nand(instruction,R0,R1,R2,R3,R4,R5,R6,FLAGS,dreg2):
+def nand(instruction,R0,R1,R2,R3,R4,R5,R6,FLAGS,dreg2):
 
-#     s1=dreg2[instruction[10:13]]
-#     s2=dreg2[instruction[13:16]]
-#     s7=dreg2[instruction[7:10]]
+    s1=dreg2[instruction[10:13]]
+    s2=dreg2[instruction[13:16]]
+    s7=dreg2[instruction[7:10]]
     
     
-#     if(s1[-1]=='0'):
-#         s3=converting_binary_to_decimal(R0[0])
-#     elif(s1[-1]=='1'):
-#         s3=converting_binary_to_decimal(R1[0])
-#     elif(s1[-1]=='2'):
-#         s3=converting_binary_to_decimal(R2[0])
-#     elif(s1[-1]=='3'):
-#         s3=converting_binary_to_decimal(R3[0])
-#     elif(s1[-1]=='4'):
-#         s3=converting_binary_to_decimal(R4[0])
-#     elif(s1[-1]=='5'):
-#         s3=converting_binary_to_decimal(R5[0])
-#     elif(s1[-1]=='6'):
-#         s3=converting_binary_to_decimal(R6[0])
-#     if(s2[-1]=='0'):
-#         s4=converting_binary_to_decimal(R0[0])
-#     elif(s2[-1]=='1'):
-#         s4=converting_binary_to_decimal(R1[0])
-#     elif(s2[-1]=='2'):
-#         s4=converting_binary_to_decimal(R2[0])
-#     elif(s2[-1]=='3'):
-#         s4=converting_binary_to_decimal(R3[0])
-#     elif(s2[-1]=='4'):
-#         s4=converting_binary_to_decimal(R4[0])
-#     elif(s2[-1]=='5'):
-#         s4=converting_binary_to_decimal(R5[0])
-#     elif(s2[-1]=='6'):
-#         s4=converting_binary_to_decimal(R6[0])
+    if(s1[-1]=='0'):
+        s3=converting_binary_to_decimal(R0[0])
+    elif(s1[-1]=='1'):
+        s3=converting_binary_to_decimal(R1[0])
+    elif(s1[-1]=='2'):
+        s3=converting_binary_to_decimal(R2[0])
+    elif(s1[-1]=='3'):
+        s3=converting_binary_to_decimal(R3[0])
+    elif(s1[-1]=='4'):
+        s3=converting_binary_to_decimal(R4[0])
+    elif(s1[-1]=='5'):
+        s3=converting_binary_to_decimal(R5[0])
+    elif(s1[-1]=='6'):
+        s3=converting_binary_to_decimal(R6[0])
+    if(s2[-1]=='0'):
+        s4=converting_binary_to_decimal(R0[0])
+    elif(s2[-1]=='1'):
+        s4=converting_binary_to_decimal(R1[0])
+    elif(s2[-1]=='2'):
+        s4=converting_binary_to_decimal(R2[0])
+    elif(s2[-1]=='3'):
+        s4=converting_binary_to_decimal(R3[0])
+    elif(s2[-1]=='4'):
+        s4=converting_binary_to_decimal(R4[0])
+    elif(s2[-1]=='5'):
+        s4=converting_binary_to_decimal(R5[0])
+    elif(s2[-1]=='6'):
+        s4=converting_binary_to_decimal(R6[0])
 
-#     s5=~(s4&s3)
-#     s6=converting_decimal_to_binary(s5)
+    s5=~(s4&s3)
+    s6=converting_decimal_to_binary(s5)
     
-#     if(s7[-1]=='0'):
-#         R0.clear()
-#         R0.append(s6)
-#     elif(s7[-1]=='1'):
-#         R1.clear()
-#         R1.append(s6)
-#     elif(s7[-1]=='2'):
-#         R2.clear()
-#         R2.append(s6)
-#     elif(s7[-1]=='3'):
-#         R3.clear()
-#         R3.append(s6)
-#     elif(s7[-1]=='4'):
-#         R4.clear()
-#         R4.append(s6)
-#     elif(s7[-1]=='5'):
-#         R6.clear()
-#         R6.append(s6)
-#     elif(s7[-1]=='6'):
-#         R6.clear()
-#         R6.append(s6)
-#     FLAGS.clear()
-#     FLAGS.append('0000000000000000')
+    if(s7[-1]=='0'):
+        R0.clear()
+        R0.append(s6)
+    elif(s7[-1]=='1'):
+        R1.clear()
+        R1.append(s6)
+    elif(s7[-1]=='2'):
+        R2.clear()
+        R2.append(s6)
+    elif(s7[-1]=='3'):
+        R3.clear()
+        R3.append(s6)
+    elif(s7[-1]=='4'):
+        R4.clear()
+        R4.append(s6)
+    elif(s7[-1]=='5'):
+        R6.clear()
+        R6.append(s6)
+    elif(s7[-1]=='6'):
+        R6.clear()
+        R6.append(s6)
+    FLAGS.clear()
+    FLAGS.append('0000000000000000')
 
-# def nor(instruction,R0,R1,R2,R3,R4,R5,R6,FLAGS,dreg2):
+def nor(instruction,R0,R1,R2,R3,R4,R5,R6,FLAGS,dreg2):
 
-#     s1=dreg2[instruction[10:13]]
-#     s2=dreg2[instruction[13:16]]
-#     s7=dreg2[instruction[7:10]]
-    
-    
-#     if(s1[-1]=='0'):
-#         s3=converting_binary_to_decimal(R0[0])
-#     elif(s1[-1]=='1'):
-#         s3=converting_binary_to_decimal(R1[0])
-#     elif(s1[-1]=='2'):
-#         s3=converting_binary_to_decimal(R2[0])
-#     elif(s1[-1]=='3'):
-#         s3=converting_binary_to_decimal(R3[0])
-#     elif(s1[-1]=='4'):
-#         s3=converting_binary_to_decimal(R4[0])
-#     elif(s1[-1]=='5'):
-#         s3=converting_binary_to_decimal(R5[0])
-#     elif(s1[-1]=='6'):
-#         s3=converting_binary_to_decimal(R6[0])
-#     if(s2[-1]=='0'):
-#         s4=converting_binary_to_decimal(R0[0])
-#     elif(s2[-1]=='1'):
-#         s4=converting_binary_to_decimal(R1[0])
-#     elif(s2[-1]=='2'):
-#         s4=converting_binary_to_decimal(R2[0])
-#     elif(s2[-1]=='3'):
-#         s4=converting_binary_to_decimal(R3[0])
-#     elif(s2[-1]=='4'):
-#         s4=converting_binary_to_decimal(R4[0])
-#     elif(s2[-1]=='5'):
-#         s4=converting_binary_to_decimal(R5[0])
-#     elif(s2[-1]=='6'):
-#         s4=converting_binary_to_decimal(R6[0])
-
-#     s5=~(s4|s3)
-#     s6=converting_decimal_to_binary(s5)
-    
-#     if(s7[-1]=='0'):
-#         R0.clear()
-#         R0.append(s6)
-#     elif(s7[-1]=='1'):
-#         R1.clear()
-#         R1.append(s6)
-#     elif(s7[-1]=='2'):
-#         R2.clear()
-#         R2.append(s6)
-#     elif(s7[-1]=='3'):
-#         R3.clear()
-#         R3.append(s6)
-#     elif(s7[-1]=='4'):
-#         R4.clear()
-#         R4.append(s6)
-#     elif(s7[-1]=='5'):
-#         R6.clear()
-#         R6.append(s6)
-#     elif(s7[-1]=='6'):
-#         R6.clear()
-#         R6.append(s6)
-#     FLAGS.clear()
-#     FLAGS.append('0000000000000000')
-
-# def xnor(instruction,R0,R1,R2,R3,R4,R5,R6,FLAGS,dreg2):
-#     s1=dreg2[instruction[10:13]]
-#     s2=dreg2[instruction[13:16]]
-#     s7=dreg2[instruction[7:10]]
+    s1=dreg2[instruction[10:13]]
+    s2=dreg2[instruction[13:16]]
+    s7=dreg2[instruction[7:10]]
     
     
-#     if(s1[-1]=='0'):
-#         s3=converting_binary_to_decimal(R0[0])
-#     elif(s1[-1]=='1'):
-#         s3=converting_binary_to_decimal(R1[0])
-#     elif(s1[-1]=='2'):
-#         s3=converting_binary_to_decimal(R2[0])
-#     elif(s1[-1]=='3'):
-#         s3=converting_binary_to_decimal(R3[0])
-#     elif(s1[-1]=='4'):
-#         s3=converting_binary_to_decimal(R4[0])
-#     elif(s1[-1]=='5'):
-#         s3=converting_binary_to_decimal(R5[0])
-#     elif(s1[-1]=='6'):
-#         s3=converting_binary_to_decimal(R6[0])
-#     if(s2[-1]=='0'):
-#         s4=converting_binary_to_decimal(R0[0])
-#     elif(s2[-1]=='1'):
-#         s4=converting_binary_to_decimal(R1[0])
-#     elif(s2[-1]=='2'):
-#         s4=converting_binary_to_decimal(R2[0])
-#     elif(s2[-1]=='3'):
-#         s4=converting_binary_to_decimal(R3[0])
-#     elif(s2[-1]=='4'):
-#         s4=converting_binary_to_decimal(R4[0])
-#     elif(s2[-1]=='5'):
-#         s4=converting_binary_to_decimal(R5[0])
-#     elif(s2[-1]=='6'):
-#         s4=converting_binary_to_decimal(R6[0])
+    if(s1[-1]=='0'):
+        s3=converting_binary_to_decimal(R0[0])
+    elif(s1[-1]=='1'):
+        s3=converting_binary_to_decimal(R1[0])
+    elif(s1[-1]=='2'):
+        s3=converting_binary_to_decimal(R2[0])
+    elif(s1[-1]=='3'):
+        s3=converting_binary_to_decimal(R3[0])
+    elif(s1[-1]=='4'):
+        s3=converting_binary_to_decimal(R4[0])
+    elif(s1[-1]=='5'):
+        s3=converting_binary_to_decimal(R5[0])
+    elif(s1[-1]=='6'):
+        s3=converting_binary_to_decimal(R6[0])
+    if(s2[-1]=='0'):
+        s4=converting_binary_to_decimal(R0[0])
+    elif(s2[-1]=='1'):
+        s4=converting_binary_to_decimal(R1[0])
+    elif(s2[-1]=='2'):
+        s4=converting_binary_to_decimal(R2[0])
+    elif(s2[-1]=='3'):
+        s4=converting_binary_to_decimal(R3[0])
+    elif(s2[-1]=='4'):
+        s4=converting_binary_to_decimal(R4[0])
+    elif(s2[-1]=='5'):
+        s4=converting_binary_to_decimal(R5[0])
+    elif(s2[-1]=='6'):
+        s4=converting_binary_to_decimal(R6[0])
 
-#     s5=~(s4^s3)
-#     s6=converting_decimal_to_binary(s5)
+    s5=~(s4|s3)
+    s6=converting_decimal_to_binary(s5)
     
-#     if(s7[-1]=='0'):
-#         R0.clear()
-#         R0.append(s6)
-#     elif(s7[-1]=='1'):
-#         R1.clear()
-#         R1.append(s6)
-#     elif(s7[-1]=='2'):
-#         R2.clear()
-#         R2.append(s6)
-#     elif(s7[-1]=='3'):
-#         R3.clear()
-#         R3.append(s6)
-#     elif(s7[-1]=='4'):
-#         R4.clear()
-#         R4.append(s6)
-#     elif(s7[-1]=='5'):
-#         R6.clear()
-#         R6.append(s6)
-#     elif(s7[-1]=='6'):
-#         R6.clear()
-#         R6.append(s6)
-#     FLAGS.clear()
-#     FLAGS.append('0000000000000000')
+    if(s7[-1]=='0'):
+        R0.clear()
+        R0.append(s6)
+    elif(s7[-1]=='1'):
+        R1.clear()
+        R1.append(s6)
+    elif(s7[-1]=='2'):
+        R2.clear()
+        R2.append(s6)
+    elif(s7[-1]=='3'):
+        R3.clear()
+        R3.append(s6)
+    elif(s7[-1]=='4'):
+        R4.clear()
+        R4.append(s6)
+    elif(s7[-1]=='5'):
+        R6.clear()
+        R6.append(s6)
+    elif(s7[-1]=='6'):
+        R6.clear()
+        R6.append(s6)
+    FLAGS.clear()
+    FLAGS.append('0000000000000000')
 
-# def Stdec(instruction, R0, R1, R2, R3, R4, R5, R6, FLAGS, dreg2, list):
-#     s1 = dreg2[instruction[6:9]]
-#     s2 = instruction[9:]
-#     a = converting_binary_to_decimal_7_bit(s2)
-#     if(s1 == 'R0'):
-#         s3=converting_binary_to_decimal(R0[0])
-#         s4=s3-1
-#         if(s4<0):
-#             FLAGS.clear()
-#             FLAGS.append('0000000000001000')
-#         else:
-#             FLAGS.clear()
-#             FLAGS.append('0000000000000000')
-#             s5=converting_decimal_to_binary(s4)
-#             list[a] = s5
-#     elif(s1 == 'R1'):
-#         s3=converting_binary_to_decimal(R1[0])
-#         s4=s3-1
-#         if(s4<0):
-#             FLAGS.clear()
-#             FLAGS.append('0000000000001000')
-#         else:
-#             FLAGS.clear()
-#             FLAGS.append('0000000000000000')
-#             s5=converting_decimal_to_binary(s4)
+def xnor(instruction,R0,R1,R2,R3,R4,R5,R6,FLAGS,dreg2):
+    s1=dreg2[instruction[10:13]]
+    s2=dreg2[instruction[13:16]]
+    s7=dreg2[instruction[7:10]]
+    
+    
+    if(s1[-1]=='0'):
+        s3=converting_binary_to_decimal(R0[0])
+    elif(s1[-1]=='1'):
+        s3=converting_binary_to_decimal(R1[0])
+    elif(s1[-1]=='2'):
+        s3=converting_binary_to_decimal(R2[0])
+    elif(s1[-1]=='3'):
+        s3=converting_binary_to_decimal(R3[0])
+    elif(s1[-1]=='4'):
+        s3=converting_binary_to_decimal(R4[0])
+    elif(s1[-1]=='5'):
+        s3=converting_binary_to_decimal(R5[0])
+    elif(s1[-1]=='6'):
+        s3=converting_binary_to_decimal(R6[0])
+    if(s2[-1]=='0'):
+        s4=converting_binary_to_decimal(R0[0])
+    elif(s2[-1]=='1'):
+        s4=converting_binary_to_decimal(R1[0])
+    elif(s2[-1]=='2'):
+        s4=converting_binary_to_decimal(R2[0])
+    elif(s2[-1]=='3'):
+        s4=converting_binary_to_decimal(R3[0])
+    elif(s2[-1]=='4'):
+        s4=converting_binary_to_decimal(R4[0])
+    elif(s2[-1]=='5'):
+        s4=converting_binary_to_decimal(R5[0])
+    elif(s2[-1]=='6'):
+        s4=converting_binary_to_decimal(R6[0])
 
-#             list[a] = s5
-#     elif(s1 == 'R2'):
-#         s3=converting_binary_to_decimal(R2[0])
-#         s4=s3-1
-#         if(s4<0):
-#             FLAGS.clear()
-#             FLAGS.append('0000000000001000')
-#         else:
-#             FLAGS.clear()
-#             FLAGS.append('0000000000000000')
-#             s5=converting_decimal_to_binary(s4)
+    s5=~(s4^s3)
+    s6=converting_decimal_to_binary(s5)
+    
+    if(s7[-1]=='0'):
+        R0.clear()
+        R0.append(s6)
+    elif(s7[-1]=='1'):
+        R1.clear()
+        R1.append(s6)
+    elif(s7[-1]=='2'):
+        R2.clear()
+        R2.append(s6)
+    elif(s7[-1]=='3'):
+        R3.clear()
+        R3.append(s6)
+    elif(s7[-1]=='4'):
+        R4.clear()
+        R4.append(s6)
+    elif(s7[-1]=='5'):
+        R6.clear()
+        R6.append(s6)
+    elif(s7[-1]=='6'):
+        R6.clear()
+        R6.append(s6)
+    FLAGS.clear()
+    FLAGS.append('0000000000000000')
 
-#             list[a] = s5
-#     elif(s1 == 'R3'):
-#         s3=converting_binary_to_decimal(R3[0])
-#         s4=s3-1
-#         if(s4<0):
-#             FLAGS.clear()
-#             FLAGS.append('0000000000001000')
-#         else:
-#             FLAGS.clear()
-#             FLAGS.append('0000000000000000')
-#             s5=converting_decimal_to_binary(s4)
+def Stdec(instruction, R0, R1, R2, R3, R4, R5, R6, FLAGS, dreg2, list):
+    s1 = dreg2[instruction[6:9]]
+    s2 = instruction[9:]
+    a = converting_binary_to_decimal_7_bit(s2)
+    if(s1 == 'R0'):
+        s3=converting_binary_to_decimal(R0[0])
+        s4=s3-1
+        if(s4<0):
+            FLAGS.clear()
+            FLAGS.append('0000000000001000')
+        else:
+            FLAGS.clear()
+            FLAGS.append('0000000000000000')
+            s5=converting_decimal_to_binary(s4)
+            list[a] = s5
+    elif(s1 == 'R1'):
+        s3=converting_binary_to_decimal(R1[0])
+        s4=s3-1
+        if(s4<0):
+            FLAGS.clear()
+            FLAGS.append('0000000000001000')
+        else:
+            FLAGS.clear()
+            FLAGS.append('0000000000000000')
+            s5=converting_decimal_to_binary(s4)
 
-#             list[a] = s5
-#     elif(s1 == 'R4'):
-#         s3=converting_binary_to_decimal(R4[0])
-#         s4=s3-1
-#         if(s4<0):
-#             FLAGS.clear()
-#             FLAGS.append('0000000000001000')
-#         else:
-#             FLAGS.clear()
-#             FLAGS.append('0000000000000000')
-#             s5=converting_decimal_to_binary(s4)
+            list[a] = s5
+    elif(s1 == 'R2'):
+        s3=converting_binary_to_decimal(R2[0])
+        s4=s3-1
+        if(s4<0):
+            FLAGS.clear()
+            FLAGS.append('0000000000001000')
+        else:
+            FLAGS.clear()
+            FLAGS.append('0000000000000000')
+            s5=converting_decimal_to_binary(s4)
 
-#             list[a] = s5
-#     elif(s1 == 'R5'):
-#         s3=converting_binary_to_decimal(R5[0])
-#         s4=s3-1
-#         if(s4<0):
-#             FLAGS.clear()
-#             FLAGS.append('0000000000001000')
-#         else:
-#             FLAGS.clear()
-#             FLAGS.append('0000000000000000')
-#             s5=converting_decimal_to_binary(s4)
+            list[a] = s5
+    elif(s1 == 'R3'):
+        s3=converting_binary_to_decimal(R3[0])
+        s4=s3-1
+        if(s4<0):
+            FLAGS.clear()
+            FLAGS.append('0000000000001000')
+        else:
+            FLAGS.clear()
+            FLAGS.append('0000000000000000')
+            s5=converting_decimal_to_binary(s4)
 
-#             list[a] = s5
-#     elif(s1 == 'R6'):
-#         s3=converting_binary_to_decimal(R6[0])
-#         s4=s3-1
-#         if(s4<0):
-#             FLAGS.clear()
-#             FLAGS.append('0000000000001000')
-#         else:
-#             FLAGS.clear()
-#             FLAGS.append('0000000000000000')
-#             s5=converting_decimal_to_binary(s4)
+            list[a] = s5
+    elif(s1 == 'R4'):
+        s3=converting_binary_to_decimal(R4[0])
+        s4=s3-1
+        if(s4<0):
+            FLAGS.clear()
+            FLAGS.append('0000000000001000')
+        else:
+            FLAGS.clear()
+            FLAGS.append('0000000000000000')
+            s5=converting_decimal_to_binary(s4)
 
-#             list[a] = s5
-# def ldinc(instruction, R0, R1, R2, R3, R4, R5, R6, FLAGS, dreg2, list):
-#     s1 = dreg2[instruction[6:9]]
-#     s2 = instruction[9:]
-#     a = converting_binary_to_decimal_7_bit(s2)
-#     string = list[a]
-#     s3=converting_binary_to_decimal(string)+1
-#     s4=converting_decimal_to_binary(s3)
-#     if(s4>16):
-#         if(s1 == 'R0'):
-#             R0.clear()
-#             R0.append("0000000000000000")
-#         elif(s1 == 'R1'):
-#             R1.clear()
-#             R1.append("0000000000000000")
-#         elif(s1 == 'R2'):
-#             R2.clear()
-#             R2.append("0000000000000000")
-#         elif(s1 == 'R3'):
-#             R3.clear()
-#             R3.append("0000000000000000")
-#         elif(s1 == 'R4'):
-#             R4.clear()
-#             R4.append("0000000000000000")
-#         elif(s1 == 'R5'):
-#             R5.clear()
-#             R5.append("0000000000000000")
-#         elif(s1 == 'R6'):
-#             R6.clear()
-#             R6.append("0000000000000000")
+            list[a] = s5
+    elif(s1 == 'R5'):
+        s3=converting_binary_to_decimal(R5[0])
+        s4=s3-1
+        if(s4<0):
+            FLAGS.clear()
+            FLAGS.append('0000000000001000')
+        else:
+            FLAGS.clear()
+            FLAGS.append('0000000000000000')
+            s5=converting_decimal_to_binary(s4)
+
+            list[a] = s5
+    elif(s1 == 'R6'):
+        s3=converting_binary_to_decimal(R6[0])
+        s4=s3-1
+        if(s4<0):
+            FLAGS.clear()
+            FLAGS.append('0000000000001000')
+        else:
+            FLAGS.clear()
+            FLAGS.append('0000000000000000')
+            s5=converting_decimal_to_binary(s4)
+
+            list[a] = s5
+def ldinc(instruction, R0, R1, R2, R3, R4, R5, R6, FLAGS, dreg2, list):
+    s1 = dreg2[instruction[6:9]]
+    s2 = instruction[9:]
+    a = converting_binary_to_decimal_7_bit(s2)
+    string = list[a]
+    s3=converting_binary_to_decimal(string)+1
+    s4=converting_decimal_to_binary(s3)
+    if(s4>16):
+        if(s1 == 'R0'):
+            R0.clear()
+            R0.append("0000000000000000")
+        elif(s1 == 'R1'):
+            R1.clear()
+            R1.append("0000000000000000")
+        elif(s1 == 'R2'):
+            R2.clear()
+            R2.append("0000000000000000")
+        elif(s1 == 'R3'):
+            R3.clear()
+            R3.append("0000000000000000")
+        elif(s1 == 'R4'):
+            R4.clear()
+            R4.append("0000000000000000")
+        elif(s1 == 'R5'):
+            R5.clear()
+            R5.append("0000000000000000")
+        elif(s1 == 'R6'):
+            R6.clear()
+            R6.append("0000000000000000")
         
-#         FLAGS.clear()
-#         FLAGS.append('0000000000001000')
-#     else:
-#         if(s1 == 'R0'):
-#             R0.clear()
-#             R0.append(string)
-#         elif(s1 == 'R1'):
-#             R1.clear()
-#             R1.append(string)
-#         elif(s1 == 'R2'):
-#             R2.clear()
-#             R2.append(string)
-#         elif(s1 == 'R3'):
-#             R3.clear()
-#             R3.append(string)
-#         elif(s1 == 'R4'):
-#             R4.clear()
-#             R4.append(string)
-#         elif(s1 == 'R5'):
-#             R5.clear()
-#             R5.append(string)
-#         elif(s1 == 'R6'):
-#             R6.clear()
-#             R6.append(string)
-#         FLAGS.clear()
-#         FLAGS.append('0000000000000000')
+        FLAGS.clear()
+        FLAGS.append('0000000000001000')
+    else:
+        if(s1 == 'R0'):
+            R0.clear()
+            R0.append(string)
+        elif(s1 == 'R1'):
+            R1.clear()
+            R1.append(string)
+        elif(s1 == 'R2'):
+            R2.clear()
+            R2.append(string)
+        elif(s1 == 'R3'):
+            R3.clear()
+            R3.append(string)
+        elif(s1 == 'R4'):
+            R4.clear()
+            R4.append(string)
+        elif(s1 == 'R5'):
+            R5.clear()
+            R5.append(string)
+        elif(s1 == 'R6'):
+            R6.clear()
+            R6.append(string)
+        FLAGS.clear()
+        FLAGS.append('0000000000000000')
 
 #dictionary of opcode
 dopcode ={'add':'00000', 'sub':'00001', 'mov':'00010', 'mov1':'00011', 'ld':'00100', 'st':'00101', 'mul':'00110', 'div':'00111', 'rs':'01000', 'ls':'01001', 'xor': '01010', 'or':'01011', 'and':'01011', 'not':'01101', 'cmp':'01110', 'jmp':'01111', 'jlt':'11100', 'jgt':'11101', 'je':'11111', 'hlt':'11010','nand':'11001','nor':'11110','xnor':'10011','stdec':'10100','ldinc':'10100'}
@@ -1409,17 +1409,17 @@ R5=['0000000000000000']
 R6=['0000000000000000']
 FLAGS=['0000000000000000']
 FLAGS2=['0000000000000000']
+# yout=f1.readlines()
+# for i in range (len(yout)):
+#     list[i]=yout[i].strip()
 i = 0
 while(True):
-    try:
-        a=input().strip()
+    try :
+        a = input().strip()
         list[i] = a
-        i=i+1
+        i = i+1
     except EOFError:
         break
-# a=sys.stdin
-# for i in range(len(a)):
-#     list[i]=a[i].strip()
 # list[0]="0001000010000101"
 # list[1]="0010100010000011"
 # list[2]="1101000000000000"
@@ -1438,7 +1438,7 @@ while(True):
         break
     if(inst2 == '00000'):
         add(list[pc],R0,R1,R2,R3,R4,R5,R6,FLAGS,dreg2)
-        print(converting_decimal_to_binary_7_bit(pc)+'         '+R0[0]+' '+R1[0]+' '+R2[0]+' '+R3[0]+' '+R4[0]+' '+R5[0]+' '+R6[0]+' '+FLAGS[0])
+        print(converting_decimal_to_binary_7_bit(pc)+'        '+R0[0]+' '+R1[0]+' '+R2[0]+' '+R3[0]+' '+R4[0]+' '+R5[0]+' '+R6[0]+' '+FLAGS[0])
         pc=pc+1
         inst2 = list[pc][:5]
         # print(inst2)
@@ -1601,37 +1601,39 @@ while(True):
         pc=pc+1
         inst2 = list[pc][:5]
 
-    # elif(inst2 == '11110'):
-    #     nor(list[pc],R0,R1,R2,R3,R4,R5,R6,FLAGS,dreg2)
-    #     print(converting_decimal_to_binary_7_bit(pc)+'        '+R0[0]+' '+R1[0]+' '+R2[0]+' '+R3[0]+' '+R4[0]+' '+R5[0]+' '+R6[0]+' '+FLAGS[0])
+    elif(inst2 == '11110'):
+        nor(list[pc],R0,R1,R2,R3,R4,R5,R6,FLAGS,dreg2)
+        print(converting_decimal_to_binary_7_bit(pc)+'        '+R0[0]+' '+R1[0]+' '+R2[0]+' '+R3[0]+' '+R4[0]+' '+R5[0]+' '+R6[0]+' '+FLAGS[0])
         
 
-    #     pc=pc+1
-    #     inst2 = list[pc][:5]
+        pc=pc+1
+        inst2 = list[pc][:5]
 
-    # elif(inst2 == '10011'):
-    #     xnor(list[pc],R0,R1,R2,R3,R4,R5,R6,FLAGS,dreg2)
-    #     print(converting_decimal_to_binary_7_bit(pc)+'        '+R0[0]+' '+R1[0]+' '+R2[0]+' '+R3[0]+' '+R4[0]+' '+R5[0]+' '+R6[0]+' '+FLAGS[0])
+    elif(inst2 == '10011'):
+        xnor(list[pc],R0,R1,R2,R3,R4,R5,R6,FLAGS,dreg2)
+        print(converting_decimal_to_binary_7_bit(pc)+'        '+R0[0]+' '+R1[0]+' '+R2[0]+' '+R3[0]+' '+R4[0]+' '+R5[0]+' '+R6[0]+' '+FLAGS[0])
         
 
-    #     pc=pc+1
-    #     inst2 = list[pc][:5]
+        pc=pc+1
+        inst2 = list[pc][:5]
 
-    # elif(inst2 == '10100'):#
-    #     Stdec(list[pc], R0, R1, R2, R3, R4, R5, R6, FLAGS, dreg2, list)
-    #     print(converting_decimal_to_binary_7_bit(pc)+'        '+R0[0]+' '+R1[0]+' '+R2[0]+' '+R3[0]+' '+R4[0]+' '+R5[0]+' '+R6[0]+' '+FLAGS[0])
+    elif(inst2 == '10100'):#
+        Stdec(list[pc], R0, R1, R2, R3, R4, R5, R6, FLAGS, dreg2, list)
+        print(converting_decimal_to_binary_7_bit(pc)+' '+R0[0]+' '+R1[0]+' '+R2[0]+' '+R3[0]+' '+R4[0]+' '+R5[0]+' '+R6[0]+' '+FLAGS[0])
         
 
-    #     pc=pc+1
-    #     inst2 = list[pc][:5]
+        pc=pc+1
+        inst2 = list[pc][:5]
 
-    # elif(inst2 == '10101'):#
-    #     ldinc(list[pc], R0, R1, R2, R3, R4, R5, R6, FLAGS, dreg2, list)
-    #     print(converting_decimal_to_binary_7_bit(pc)+'        '+R0[0]+' '+R1[0]+' '+R2[0]+' '+R3[0]+' '+R4[0]+' '+R5[0]+' '+R6[0]+' '+FLAGS[0])
+    elif(inst2 == '10101'):#
+        ldinc(list[pc], R0, R1, R2, R3, R4, R5, R6, FLAGS, dreg2, list)
+        print(converting_decimal_to_binary_7_bit(pc)+' '+R0[0]+' '+R1[0]+' '+R2[0]+' '+R3[0]+' '+R4[0]+' '+R5[0]+' '+R6[0]+' '+FLAGS[0])
         
 
-    #     pc=pc+1
-    #     inst2 = list[pc][:5]
+        pc=pc+1
+        inst2 = list[pc][:5]
+
+
 for i in list:
     print(i)
-
+# print(len(list))
